@@ -1,0 +1,262 @@
+@import 'tailwindcss';
+
+/*
+ * TOKENS DA MARCA LIAC EVENTOS (fonte: ID VISUAL/)
+ * Rosé #DBA4A1 · Blush #F9DAD6 · Grafite #606060 · Sálvia #72928A
+ * Fontes do manual: Heading Compressed Pro (títulos) e Anurati (apoio).
+ * No site: Antonio (condensada, a mais próxima da Heading Compressed no Google Fonts)
+ * e Montserrat (geométrica, para textos e rótulos espaçados no espírito da Anurati).
+ */
+@theme {
+  --font-display: var(--font-antonio), 'Arial Narrow', sans-serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+
+  /* Rosé (cor principal do logo) */
+  --color-primary-50: #fdf7f6;
+  --color-primary-100: #f9dad6;
+  --color-primary-200: #f2c7c3;
+  --color-primary-300: #e7b5b1;
+  --color-primary-400: #dba4a1;
+  --color-primary-500: #c98a87;
+  --color-primary-600: #a96b68;
+  --color-primary-700: #8a5350;
+
+  /* Sálvia */
+  --color-accent-50: #f1f5f4;
+  --color-accent-100: #dfe8e5;
+  --color-accent-200: #c2d3ce;
+  --color-accent-300: #9db6af;
+  --color-accent-400: #72928a;
+  --color-accent-500: #5f7c75;
+  --color-accent-600: #4c6660;
+  --color-accent-700: #3b504b;
+
+  /* Grafite (texto e blocos escuros) */
+  --color-ink-950: #1f1f1f;
+  --color-ink-900: #2b2b2b;
+  --color-ink-800: #3a3a3a;
+  --color-ink-700: #4a4a4a;
+  --color-ink-600: #606060;
+
+  --color-paper: #fffcfb;
+  --color-mist: #fbf2f0;
+
+  --animate-marquee: marquee 50s linear infinite;
+  --animate-rise: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* igual ao rise, mas sem começar invisível: o texto já conta como LCP no 1º paint */
+  --animate-rise-in: rise-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-word: word 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-kenburns: kenburns 14s ease-out both;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+  @keyframes rise-in {
+    from {
+      transform: translateY(28px);
+      filter: blur(8px);
+    }
+    to {
+      transform: none;
+      filter: none;
+    }
+  }
+  @keyframes word {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--r, 0deg));
+    }
+    50% {
+      transform: translateY(-14px) rotate(var(--r, 0deg));
+    }
+  }
+  @keyframes kenburns {
+    from {
+      transform: scale(1.05);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+/*
+ * Failsafe: se o JavaScript não hidratar em 2,5s (rede lenta, erro, extensão), o script
+ * no <head> adiciona .motion-fallback e todo conteúdo animado aparece no estado final.
+ */
+html.motion-fallback [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper text-ink-950 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-primary-200);
+    color: var(--color-ink-950);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ---------- Utilitários da marca ---------- */
+@utility container-site {
+  width: min(1240px, 100% - 2rem);
+  margin-inline: auto;
+  @media (width >= 48rem) {
+    width: min(1240px, 100% - 3rem);
+  }
+}
+
+/* Rótulo pequeno, bem espaçado (eco da Anurati do manual) */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+/* Destaque dentro do título: rosé, sem caixa alta forçada para nomes */
+@utility text-highlight {
+  color: var(--color-primary-400);
+}
+@utility text-highlight-dark {
+  color: var(--color-primary-600);
+}
+
+/*
+ * Botão Liac: retângulo com cantos levemente cortados (eco do logo) e um preenchimento
+ * que atravessa da esquerda para a direita no hover.
+ */
+@utility btn-liac {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition:
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--btn-fill, var(--color-ink-950));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  &:hover {
+    color: var(--btn-fill-text, #fff);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility photo-frame {
+  box-shadow: 0 40px 80px -40px rgb(31 31 31 / 0.55);
+}
+
+/* Padrão geométrico da marca como textura de fundo */
+@utility bg-pattern {
+  background-image: url('/images/marca/padrao-geometrico.webp');
+  background-size: 360px;
+}
+
+/* Esconde a barra de rolagem (carrosséis com scroll-snap; continuam roláveis por toque/teclado) */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Indicador do carrossel do banner (enche durante o tempo de cada foto) */
+@keyframes carousel-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Acordeão (<details>) com abertura suave onde houver suporte */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    content-visibility 0.45s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
+/* Movimento reduzido: só suaviza o que é grande; o site continua vivo */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation-duration: 140s;
+  }
+  .animate-kenburns {
+    animation: none;
+  }
+}

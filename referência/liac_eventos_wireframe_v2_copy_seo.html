@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Liac Eventos: espaço para eventos em Belo Horizonte, na Pampulha. Casamentos, eventos sociais e corporativos de 50 a 300 convidados, com estrutura de alto padrão, climatização, acessibilidade e estacionamento." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Liac Eventos | Espaço para Eventos e Casamentos em Belo Horizonte" />
+  <meta property="og:description" content="Conheça o Liac Eventos na Pampulha: espaço de alto padrão para casamentos, festas e eventos corporativos em Belo Horizonte." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <title>Liac Eventos | Espaço para Eventos e Casamentos em Belo Horizonte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#17201c;
+      --forest:#1d332a;
+      --forest-2:#28483a;
+      --sage:#9aa99d;
+      --cream:#f5f1e8;
+      --paper:#fffdf8;
+      --gold:#b88b55;
+      --gold-light:#dcc19e;
+      --line:rgba(23,32,28,.13);
+      --white:#fff;
+      --shadow:0 18px 50px rgba(21,33,28,.12);
+      --radius:26px;
+      --radius-sm:16px;
+      --max:1240px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(var(--max),calc(100% - 42px));margin:0 auto}
+    .eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:13px}
+    .display{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.03em;line-height:1.03}
+    .section{padding:96px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:46px}
+    .section-head h2{font-size:clamp(2.3rem,4vw,4.3rem);max-width:760px}
+    .section-head p{max-width:480px;color:#59635e}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:999px;padding:14px 22px;font-weight:700;transition:.25s ease}
+    .btn-primary{background:var(--gold);color:white}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(184,139,85,.26)}
+    .btn-outline{border-color:rgba(255,255,255,.55);color:white;background:rgba(255,255,255,.07);backdrop-filter:blur(10px)}
+    .btn-dark{background:var(--forest);color:white}
+    .btn-ghost{border-color:var(--line);background:transparent}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:.83rem}
+    .wire-badge{position:fixed;z-index:1000;left:18px;bottom:18px;background:#101411;color:#fff;border:1px solid rgba(255,255,255,.15);padding:9px 13px;border-radius:999px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;box-shadow:var(--shadow)}
+
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:900;transition:.25s;background:linear-gradient(to bottom,rgba(8,18,14,.72),rgba(8,18,14,0));color:#fff}
+    header.scrolled{background:rgba(18,30,25,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+    .nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{font-family:"Playfair Display",serif;font-size:1.72rem;letter-spacing:.03em;white-space:nowrap}
+    .brand small{display:block;font-family:"DM Sans";font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;margin-top:-3px;opacity:.8}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:.85rem}
+    .nav-links a{opacity:.82;transition:.2s;white-space:nowrap}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold-light)}
+    .menu-btn{display:none;border:0;background:transparent;color:white;font-size:1.6rem}
+
+    /* APP PAGES */
+    .page{display:none}
+    .page.active{display:block}
+    .internal-hero{min-height:48vh;padding:150px 0 70px;background:var(--forest);color:white;display:flex;align-items:end;position:relative;overflow:hidden}
+    .internal-hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;border:1px solid rgba(255,255,255,.08);right:-100px;top:-100px;box-shadow:0 0 0 60px rgba(255,255,255,.025),0 0 0 120px rgba(255,255,255,.018)}
+    .internal-hero h1{font-size:clamp(3rem,6vw,6rem);max-width:900px}
+    .internal-hero p{font-size:1.05rem;max-width:680px;margin-top:18px;color:rgba(255,255,255,.75)}
+
+    /* HOME HERO */
+    .hero{height:100vh;min-height:720px;position:relative;background:#14251d;color:#fff;overflow:hidden}
+    .slides,.slide{position:absolute;inset:0}
+    .slide{opacity:0;transition:opacity .8s ease;background-size:cover;background-position:center}
+    .slide.active{opacity:1}
+    .slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,18,14,.80) 0%,rgba(8,18,14,.52) 46%,rgba(8,18,14,.16) 100%),linear-gradient(0deg,rgba(8,18,14,.50),transparent 45%)}
+    .hero-content{position:relative;z-index:5;height:100%;display:flex;align-items:center;padding-top:74px}
+    .hero-copy{max-width:790px}
+    .hero-copy h1{font-size:clamp(3.5rem,7vw,7.5rem);margin:14px 0 24px}
+    .hero-copy p{font-size:clamp(1rem,1.5vw,1.2rem);max-width:630px;color:rgba(255,255,255,.84);margin-bottom:32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-meta{position:absolute;z-index:7;bottom:32px;left:0;right:0}
+    .hero-meta-inner{display:flex;justify-content:space-between;align-items:end;gap:24px;border-top:1px solid rgba(255,255,255,.22);padding-top:20px}
+    .hero-meta p{font-size:.8rem;color:rgba(255,255,255,.65)}
+    .dots{display:flex;gap:9px}.dot{width:34px;height:3px;background:rgba(255,255,255,.3);border:0}.dot.active{background:var(--gold-light)}
+
+    /* INTRO */
+    .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:62px;align-items:center}
+    .intro-copy h2{font-size:clamp(2.6rem,4.5vw,5rem);margin-bottom:24px}
+    .intro-copy p{color:#58615d;font-size:1.03rem;max-width:620px;margin-bottom:26px}
+    .photo-stack{height:620px;position:relative}
+    .photo-stack .main{position:absolute;right:0;top:0;width:80%;height:80%;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .photo-stack .small{position:absolute;left:0;bottom:0;width:48%;height:48%;border-radius:var(--radius);overflow:hidden;border:10px solid var(--paper);box-shadow:var(--shadow)}
+    .photo-caption{position:absolute;right:16px;bottom:82px;background:rgba(255,253,248,.92);backdrop-filter:blur(8px);border-radius:18px;padding:14px 17px;width:220px;box-shadow:var(--shadow)}
+    .photo-caption b{display:block}.photo-caption span{font-size:.78rem;color:#68716d}
+
+    /* NUMBERS */
+    .numbers{background:var(--forest);color:#fff}
+    .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);overflow:hidden}
+    .number{padding:48px 32px;min-height:188px;border-right:1px solid rgba(255,255,255,.14)}
+    .number:last-child{border-right:0}
+    .number strong{display:block;font-family:"Playfair Display";font-size:3.5rem;font-weight:500;color:var(--gold-light);line-height:1}
+    .number span{display:block;margin-top:12px;color:rgba(255,255,255,.72);font-size:.9rem}
+    .source-note{margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.48)}
+
+    /* PROOF */
+    .proof-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px}
+    .video-card{border-radius:var(--radius);min-height:470px;position:relative;overflow:hidden;background-size:cover;background-position:center}
+    .video-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,17,13,.72),rgba(9,17,13,.12))}
+    .play{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);color:var(--forest);font-size:1.5rem}
+    .video-label{position:absolute;z-index:3;left:28px;bottom:26px;color:white}.video-label p{opacity:.75;font-size:.9rem}
+    .reviews{display:grid;gap:16px}
+    .review{border:1px solid var(--line);border-radius:var(--radius-sm);padding:26px;background:white}
+    .stars{color:var(--gold);letter-spacing:2px;margin-bottom:13px}
+    .review p{color:#4f5954}.review b{display:block;margin-top:20px;font-size:.9rem}.review small{color:#7b847f}
+
+    /* DIFFERENTIALS */
+    .diffs{background:var(--cream)}
+    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .diff{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:30px;min-height:230px;transition:.25s}
+    .diff:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .icon{width:48px;height:48px;border-radius:14px;background:rgba(184,139,85,.14);display:grid;place-items:center;margin-bottom:28px;color:var(--gold);font-size:1.2rem}
+    .diff h3{font-family:"Playfair Display";font-size:1.55rem;margin-bottom:10px}.diff p{color:#68716d;font-size:.9rem}
+
+    /* 360 */
+    .tour-wrap{display:grid;grid-template-columns:.72fr 1.28fr;background:var(--forest);border-radius:34px;overflow:hidden;color:white;min-height:630px}
+    .tour-copy{padding:64px;display:flex;flex-direction:column;justify-content:center}.tour-copy h2{font-size:clamp(2.6rem,4vw,4.5rem);margin-bottom:22px}.tour-copy p{color:rgba(255,255,255,.7);margin-bottom:30px}
+    .tour-stage{position:relative;background-image:linear-gradient(rgba(10,18,14,.18),rgba(10,18,14,.18)),url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg');background-size:cover;background-position:center;min-height:560px}
+    .tour-stage:after{content:"360°";position:absolute;right:28px;top:28px;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.88);color:var(--forest);font-weight:800}
+    .hotspot{position:absolute;width:22px;height:22px;border-radius:50%;background:white;border:6px solid rgba(184,139,85,.8);box-shadow:0 0 0 9px rgba(255,255,255,.18);animation:pulse 2s infinite}
+    .hotspot:nth-child(1){left:31%;top:45%}.hotspot:nth-child(2){left:66%;top:57%}.hotspot:nth-child(3){left:53%;top:29%}
+    @keyframes pulse{50%{box-shadow:0 0 0 14px rgba(255,255,255,.05)}}
+    .tour-note{position:absolute;bottom:26px;left:26px;background:rgba(14,24,20,.78);backdrop-filter:blur(8px);padding:13px 16px;border-radius:12px;font-size:.78rem}
+
+    /* SERVICES */
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service{min-height:390px;border-radius:var(--radius-sm);overflow:hidden;position:relative;background-size:cover;background-position:center;isolation:isolate}
+    .service:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,16,12,.82),rgba(8,16,12,.06));z-index:-1}
+    .service-copy{position:absolute;left:24px;right:24px;bottom:24px;color:white}.service-copy h3{font-family:"Playfair Display";font-size:1.6rem}.service-copy p{font-size:.84rem;opacity:.72;margin-top:6px}
+
+    /* GALLERY */
+    .gallery-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 14px;font-size:.82rem}.filter.active{background:var(--forest);color:#fff}
+    .gallery-grid{display:grid;grid-template-columns:1.3fr .7fr 1fr;grid-template-rows:280px 280px;gap:12px}
+    .gallery-item{border-radius:18px;overflow:hidden;position:relative}.gallery-item:first-child{grid-row:span 2}.gallery-item:nth-child(4){grid-column:span 2}.gallery-item .tag{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.87);padding:7px 10px;border-radius:999px;font-size:.72rem}
+
+    /* LOCATION */
+    .location-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:22px}
+    .location-card{background:var(--cream);border-radius:var(--radius);padding:48px}.location-card h2{font-size:clamp(2.4rem,4vw,4rem);margin:8px 0 20px}.address{padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:28px 0}.address b{display:block;margin-bottom:6px}.address p{color:#606964}
+    .map{border-radius:var(--radius);overflow:hidden;min-height:500px;background:#ddd}.map iframe{width:100%;height:100%;min-height:500px;border:0}
+
+    /* FAQ */
+    .faq-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px}.faq-side h2{font-size:clamp(2.6rem,4.8vw,4.8rem)}.faq-side p{margin-top:18px;color:#66706b}.faq-item{border-bottom:1px solid var(--line)}.faq-q{width:100%;border:0;background:transparent;text-align:left;padding:22px 0;display:flex;justify-content:space-between;gap:20px;font-weight:700}.faq-a{max-height:0;overflow:hidden;color:#5d6762;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:180px;padding-bottom:22px}.plus{font-size:1.2rem;transition:.25s}.faq-item.open .plus{transform:rotate(45deg)}
+
+    /* CTA */
+    .cta{padding:100px 0;background:var(--forest);color:white;text-align:center;position:relative;overflow:hidden}.cta:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(184,139,85,.30),transparent 45%)}.cta .container{position:relative}.cta h2{font-size:clamp(3rem,6vw,6.5rem);max-width:900px;margin:0 auto 22px}.cta p{max-width:620px;margin:0 auto 30px;color:rgba(255,255,255,.72)}
+
+    /* FOOTER */
+    footer{background:#101713;color:#fff;padding:66px 0 26px}.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}.footer-brand p{margin-top:18px;color:rgba(255,255,255,.55);max-width:360px}.footer-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-light);margin-bottom:16px}.footer-col a,.footer-col p{display:block;font-size:.87rem;color:rgba(255,255,255,.62);margin:8px 0}.footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.1);margin-top:46px;padding-top:22px;color:rgba(255,255,255,.4);font-size:.72rem}
+
+    /* INTERNAL COMPONENTS */
+    .content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.content-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:28px;background:white}.content-card h3{font-family:"Playfair Display";font-size:1.55rem;margin:10px 0}.content-card p{color:#66706b;font-size:.9rem}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.split-media{min-height:520px;border-radius:var(--radius);overflow:hidden}.split-copy h2{font-size:clamp(2.7rem,4.6vw,4.8rem);margin-bottom:22px}.split-copy p{color:#63706a;margin-bottom:20px}
+    .layouts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.layout{background:var(--cream);border-radius:18px;padding:24px}.layout span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#7d867f}.layout strong{display:block;font-family:"Playfair Display";font-size:2rem;margin:10px 0}.layout p{font-size:.83rem;color:#626c67}
+    .logo-cloud{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.logo-placeholder{height:110px;border:1px dashed #b7bcb9;border-radius:16px;display:grid;place-items:center;color:#8a918d;font-size:.78rem;background:#fff}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.team{min-height:420px;border-radius:var(--radius-sm);background:linear-gradient(145deg,#dcd8ce,#bdbdb4);position:relative;overflow:hidden}.team span{position:absolute;left:18px;bottom:18px;background:white;border-radius:12px;padding:11px 14px;font-size:.82rem}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:26px}.contact-info{background:var(--forest);color:white;border-radius:var(--radius);padding:44px}.contact-info h2{font-size:3rem;margin-bottom:22px}.contact-info p,.contact-info a{color:rgba(255,255,255,.72);display:block;margin:10px 0}.form{background:var(--cream);border-radius:var(--radius);padding:44px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:.78rem;font-weight:700}.field input,.field select,.field textarea{background:white;border:1px solid var(--line);border-radius:12px;padding:13px 14px;outline:none}.field textarea{min-height:130px;resize:vertical}
+    .note-box{background:#fff7e9;border:1px solid #ead7b8;border-radius:16px;padding:18px 20px;color:#69563f;font-size:.84rem;margin-top:26px}
+    .mobile-panel{display:none}
+
+    @media(max-width:1080px){
+      .nav-links{display:none}.menu-btn{display:block}.nav .btn{display:none}
+      .mobile-panel{position:fixed;top:84px;left:0;right:0;background:var(--forest);padding:18px 22px 28px;z-index:880;color:white}.mobile-panel.open{display:grid;gap:14px}.mobile-panel a{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+      .intro-grid,.proof-grid,.tour-wrap,.location-grid,.faq-wrap,.split,.contact-grid{grid-template-columns:1fr}.tour-copy{padding:46px}.service-grid{grid-template-columns:repeat(2,1fr)}.numbers-grid{grid-template-columns:repeat(2,1fr)}.number:nth-child(2){border-right:0}.number:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.14)}.diff-grid,.content-grid{grid-template-columns:repeat(2,1fr)}.layouts{grid-template-columns:repeat(2,1fr)}.logo-cloud{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1.4fr 1fr 1fr}.footer-col:last-child{grid-column:2}.photo-stack{height:520px}
+    }
+    @media(max-width:700px){
+      .container{width:min(100% - 28px,var(--max))}.section{padding:70px 0}.section-head{display:block}.section-head p{margin-top:16px}.hero{min-height:680px}.hero-copy h1{font-size:3.7rem}.hero-meta-inner{align-items:center}.hero-meta p{display:none}.intro-grid{gap:34px}.photo-stack{height:420px}.photo-caption{display:none}.numbers-grid{grid-template-columns:1fr}.number{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.14)}.number:last-child{border-bottom:0}.diff-grid,.service-grid,.content-grid,.layouts,.team-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}.gallery-item{height:250px}.gallery-item:first-child,.gallery-item:nth-child(4){grid-row:auto;grid-column:auto}.tour-copy{padding:34px 26px}.tour-stage{min-height:420px}.location-card{padding:34px 26px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-col:last-child{grid-column:auto}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:7px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.contact-info,.form{padding:30px 24px}.logo-cloud{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "Liac Eventos",
+    "url": "https://liaceventos.com.br/",
+    "telephone": "+55 31 99447-0109",
+    "email": "contato@liaceventos.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Otacílio Negrão de Lima, 7170",
+      "addressLocality": "Belo Horizonte",
+      "addressRegion": "MG",
+      "postalCode": "31365-450",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="wire-badge">Wireframe V2 • copy comercial + SEO</div>
+
+  <header id="header">
+    <div class="container nav">
+      <a href="#" class="brand nav-page" data-page="home">LIAC<small>Eventos</small></a>
+      <nav class="nav-links">
+        <a href="#" class="nav-page active" data-page="home">Home</a>
+        <a href="#" class="nav-page" data-page="espaco">Nosso Espaço</a>
+        <a href="#" class="nav-page" data-page="servicos">Serviços</a>
+        <a href="#" class="nav-page" data-page="clientes">Clientes</a>
+        <a href="#" class="nav-page" data-page="sobre">Sobre Nós</a>
+        <a href="#" class="nav-page" data-page="galeria">Galeria</a>
+        <a href="#" class="nav-page" data-page="faq">FAQ</a>
+        <a href="#" class="nav-page" data-page="contato">Fale Conosco</a>
+      </nav>
+      <a href="#" class="btn btn-primary nav-page" data-page="contato">Solicite um orçamento →</a>
+      <button class="menu-btn" aria-label="Abrir menu">☰</button>
+    </div>
+    <div class="mobile-panel" id="mobilePanel">
+      <a href="#" class="nav-page" data-page="home">Home</a><a href="#" class="nav-page" data-page="espaco">Nosso Espaço</a><a href="#" class="nav-page" data-page="servicos">Serviços</a><a href="#" class="nav-page" data-page="clientes">Clientes</a><a href="#" class="nav-page" data-page="sobre">Sobre Nós</a><a href="#" class="nav-page" data-page="galeria">Galeria</a><a href="#" class="nav-page" data-page="faq">Perguntas Frequentes</a><a href="#" class="nav-page" data-page="contato">Fale Conosco</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <section class="hero">
+        <div class="slides">
+          <div class="slide active" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flo-no-laco-184_13_331380-177513465943482.jpeg')"></div>
+          <div class="slide" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg')"></div>
+          <div class="slide" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg')"></div>
+        </div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <div class="eyebrow">Bem-vindo ao futuro • Pampulha — Belo Horizonte</div>
+            <h1 class="display">Seu evento merece um cenário à altura.</h1>
+            <p>Na Pampulha, em Belo Horizonte, o Liac Eventos reúne elegância, conforto e uma estrutura de alto padrão para casamentos, eventos sociais e corporativos de 50 a 300 convidados. Um espaço pensado para impressionar — e uma equipe preparada para cuidar de cada detalhe.</p>
+            <div class="hero-actions">
+              <a href="#" class="btn btn-primary nav-page" data-page="contato">Agende uma visita →</a>
+              <a href="#tour" class="btn btn-outline">Conheça o espaço</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <div class="container hero-meta-inner">
+            <p>Casamentos • Eventos sociais • Eventos corporativos • Pampulha — Belo Horizonte</p>
+            <div class="dots"><button class="dot active" aria-label="Slide 1"></button><button class="dot" aria-label="Slide 2"></button><button class="dot" aria-label="Slide 3"></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container intro-grid">
+          <div class="intro-copy">
+            <div class="eyebrow">Nosso espaço</div>
+            <h2 class="display">Um espaço para eventos em Belo Horizonte onde cada detalhe faz diferença.</h2>
+            <p>Mais do que um salão de festas em Belo Horizonte, o Liac combina ambientes de alto padrão, áreas verdes e estrutura completa para criar celebrações com personalidade. Do planejamento à experiência dos convidados, cada espaço foi pensado para unir beleza, conforto, segurança e versatilidade.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px"><span class="pill">✓ 50 a 300 convidados</span><span class="pill">✓ 100% climatizado</span><span class="pill">✓ Acessibilidade</span><span class="pill">✓ Estacionamento</span></div>
+            <a href="#" class="btn btn-dark nav-page" data-page="espaco">Conheça o Liac por dentro →</a>
+          </div>
+          <div class="photo-stack">
+            <div class="main"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg" alt="Área externa do Liac Eventos"></div>
+            <div class="small"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg" alt="Salão principal do Liac Eventos"></div>
+            <div class="photo-caption"><b>Na orla da Pampulha</b><span>Na Pampulha, um endereço marcante para celebrar.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section numbers">
+        <div class="container">
+          <div class="section-head"><div><div class="eyebrow">Autoridade em números</div><h2 class="display">Confiança se constrói antes mesmo do grande dia.</h2></div><p>Estrutura, exclusividade e avaliações públicas ajudam você a escolher seu espaço para eventos em Belo Horizonte com mais segurança.</p></div>
+          <div class="numbers-grid">
+            <div class="number"><strong>300</strong><span>convidados de capacidade máxima informada pelo Liac</span></div>
+            <div class="number"><strong>105+</strong><span>casais já escolheram o Liac, segundo Casamentos.com.br</span></div>
+            <div class="number"><strong>4,8/5</strong><span>avaliação pública no Casamentos.com.br</span></div>
+            <div class="number"><strong>1</strong><span>evento por dia — mais exclusividade para cada celebração</span></div>
+          </div>
+          <div class="source-note">*Avaliação e volume de casais conforme perfil público do Liac no Casamentos.com.br, consultado em setembro de 2026.</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head"><div><div class="eyebrow">Prova social</div><h2 class="display">Experiências que viram histórias para contar.</h2></div><p>Casamentos e eventos marcantes começam com confiança. Reunimos avaliações, registros e depoimentos para mostrar como é viver uma celebração no Liac Eventos.</p></div>
+          <div class="proof-grid">
+            <div class="video-card" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flo-no-laco-184_13_331380-177513465943482.jpeg')">
+              <div class="play">▶</div><div class="video-label"><b>DEPOIMENTO EM VÍDEO</b><p>Depoimento real de casal ou cliente</p></div>
+            </div>
+            <div class="reviews">
+              <article class="review"><div class="stars">★★★★★</div><p>Um espaço que combina impacto visual, estrutura e conforto para receber convidados com uma experiência à altura da ocasião.</p><b>Avaliações públicas</b><small>Casamentos.com.br</small></article>
+              <article class="review"><div class="stars">★★★★★</div><p>Da preparação dos anfitriões à pista de dança, cada ambiente pode fazer parte da narrativa do evento e criar momentos diferentes ao longo da celebração.</p><b>Experiência Liac</b><small>Síntese de feedbacks públicos</small></article>
+              <article class="review"><div class="stars">★★★★★</div><p>Depoimentos em vídeo ajudam futuros clientes a conhecer o espaço pela perspectiva de quem já celebrou aqui — do primeiro contato ao grande dia.</p><b>Depoimentos em vídeo</b><small>Casamentos, eventos sociais e corporativos</small></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section diffs">
+        <div class="container">
+          <div class="section-head"><div><div class="eyebrow">Por que o Liac</div><h2 class="display">Por que escolher o Liac para o seu evento em Belo Horizonte?</h2></div></div>
+          <div class="diff-grid">
+            <article class="diff"><div class="icon">⌖</div><h3>Localização na Pampulha</h3><p>Na orla da Lagoa da Pampulha, em uma das regiões mais conhecidas e valorizadas de Belo Horizonte.</p></article>
+            <article class="diff"><div class="icon">✦</div><h3>Ambientes que acompanham cada momento</h3><p>Jardim, salão principal e ambientes de apoio que permitem criar diferentes experiências dentro do mesmo evento.</p></article>
+            <article class="diff"><div class="icon">◌</div><h3>Conforto, segurança e acessibilidade</h3><p>Salão 100% climatizado, acessibilidade, estacionamento e gerador de energia para receber seus convidados com mais tranquilidade.</p></article>
+            <article class="diff"><div class="icon">♜</div><h3>Pub para os anfitriões</h3><p>Um ambiente reservado para preparação, encontros e registros especiais antes da celebração começar.</p></article>
+            <article class="diff"><div class="icon">◇</div><h3>Spa / sala dos anfitriões</h3><p>Um espaço pensado para a preparação do grande momento com conforto, privacidade e uma experiência mais completa.</p></article>
+            <article class="diff"><div class="icon">♫</div><h3>Boate e área kids</h3><p>Ambientes que ampliam as possibilidades da festa e ajudam a criar uma experiência mais completa para diferentes perfis de convidados.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tour">
+        <div class="container tour-wrap">
+          <div class="tour-copy"><div class="eyebrow">Tour imersivo</div><h2 class="display">Conheça o Liac antes mesmo da sua visita.</h2><p>Faça um tour virtual pelo Liac Eventos e conheça os principais ambientes do espaço: jardim, salão, pub, spa, área kids e áreas de celebração. Depois, venha sentir tudo de perto em uma visita presencial.</p><a href="#" class="btn btn-primary nav-page" data-page="contato" style="align-self:flex-start">Agende sua visita →</a></div>
+          <div class="tour-stage"><span class="hotspot"></span><span class="hotspot"></span><span class="hotspot"></span><div class="tour-note">PLACEHOLDER INTERATIVO • inserir embed 360 oficial</div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head"><div><div class="eyebrow">Serviços & ocasiões</div><h2 class="display">Do casamento ao evento corporativo: o Liac se adapta à sua celebração.</h2></div><a href="#" class="btn btn-ghost nav-page" data-page="servicos">Conheça todas as possibilidades →</a></div>
+          <div class="service-grid">
+            <article class="service" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flo-no-laco-184_13_331380-177513465943482.jpeg')"><div class="service-copy"><h3>Casamentos</h3><p>Um espaço para casamento em Belo Horizonte que reúne cerimônia, recepção e festa em uma experiência integrada e sofisticada.</p></div></article>
+            <article class="service" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg')"><div class="service-copy"><h3>Eventos corporativos</h3><p>Confraternizações, lançamentos, premiações, encontros empresariais e experiências de marca em um espaço de eventos na Pampulha.</p></div></article>
+            <article class="service" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg')"><div class="service-copy"><h3>Eventos sociais</h3><p>Aniversários, formaturas e celebrações especiais com estrutura versátil para transformar cada ocasião em uma experiência única.</p></div></article>
+            <article class="service" style="background-image:url('https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/ror-0880_13_331380-177513588596716.jpeg')"><div class="service-copy"><h3>Eventos personalizados</h3><p>Projetos autorais e celebrações sob medida, combinando os ambientes do Liac de acordo com a proposta do seu evento.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--cream)">
+        <div class="container">
+          <div class="section-head"><div><div class="eyebrow">Galeria</div><h2 class="display">Imagine seu casamento ou evento acontecendo aqui.</h2></div><a href="#" class="btn btn-dark nav-page" data-page="galeria">Ver galeria completa →</a></div>
+          <div class="gallery-filters"><button class="filter active">Todos</button><button class="filter">Casamentos</button><button class="filter">Corporativo</button><button class="filter">Espaço</button><button class="filter">Detalhes</button></div>
+          <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flo-no-laco-184_13_331380-177513465943482.jpeg" alt="Cerimônia"><span class="tag">Cerimônia</span></div>
+            <div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg" alt="Salão"><span class="tag">Salão principal</span></div>
+            <div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/ror-0880_13_331380-177513588596716.jpeg" alt="Pub"><span class="tag">Pub</span></div>
+            <div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg" alt="Área externa"><span class="tag">Área externa</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container location-grid">
+          <div class="location-card"><div class="eyebrow">Localização</div><h2 class="display">Seu evento na Pampulha, em um dos endereços mais marcantes de Belo Horizonte.</h2><p>Localizado na Av. Otacílio Negrão de Lima, o Liac Eventos combina a atmosfera da Pampulha com uma estrutura preparada para receber celebrações sociais e eventos corporativos em Belo Horizonte.</p><div class="address"><b>Liac Eventos</b><p>Av. Otacílio Negrão de Lima, 7170<br>Bandeirantes (Pampulha) • Belo Horizonte — MG</p></div><a class="btn btn-dark" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Av.+Otac%C3%ADlio+Negr%C3%A3o+de+Lima+7170+Belo+Horizonte">Como chegar →</a></div>
+          <div class="map"><iframe title="Mapa do Liac Eventos" loading="lazy" src="https://www.google.com/maps?q=Av.%20Otac%C3%ADlio%20Negr%C3%A3o%20de%20Lima%207170%20Belo%20Horizonte&output=embed"></iframe></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container faq-wrap">
+          <div class="faq-side"><div class="eyebrow">Perguntas frequentes</div><h2 class="display">Tudo o que você precisa saber antes de escolher o Liac.</h2><p>Tire suas principais dúvidas sobre capacidade, estacionamento, acessibilidade, fornecedores e visitas ao espaço.</p></div>
+          <div class="faq-list">
+            <div class="faq-item open"><button class="faq-q">Qual é a capacidade do Liac Eventos?<span class="plus">+</span></button><div class="faq-a"><p>O Liac recebe eventos de 50 a 300 convidados. A capacidade ideal varia conforme o formato da celebração, a disposição do salão e as experiências previstas para o evento.</p></div></div>
+            <div class="faq-item"><button class="faq-q">O espaço possui estacionamento?<span class="plus">+</span></button><div class="faq-a"><p>Sim. O Liac Eventos conta com estacionamento entre as conveniências oferecidas para tornar a chegada dos convidados mais prática.</p></div></div>
+            <div class="faq-item"><button class="faq-q">É possível realizar cerimônia e festa no mesmo local?<span class="plus">+</span></button><div class="faq-a"><p>Sim. O Liac reúne jardim, salão e ambientes complementares que permitem organizar diferentes momentos da celebração no mesmo endereço.</p></div></div>
+            <div class="faq-item"><button class="faq-q">É possível levar fornecedores externos?<span class="plus">+</span></button><div class="faq-a"><p>A composição de fornecedores depende do formato contratado. Nossa equipe apresenta as possibilidades e orienta a melhor configuração para o seu evento.</p></div></div>
+            <div class="faq-item"><button class="faq-q">Como agendo uma visita?<span class="plus">+</span></button><div class="faq-a"><p>Você pode solicitar uma visita pelo formulário ou pelo WhatsApp. Nossa equipe entra em contato para entender seu evento e encontrar o melhor horário para conhecer o espaço.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta"><div class="container"><div class="eyebrow">Próximo passo</div><h2 class="display">O primeiro passo para o seu evento pode ser uma visita.</h2><p>Conte para a equipe o que você está planejando. Vamos apresentar o espaço, entender o perfil do seu evento e mostrar as possibilidades para transformar sua ideia em uma celebração memorável.</p><a href="#" class="btn btn-primary nav-page" data-page="contato">Solicite uma proposta →</a></div></section>
+    </section>
+
+    <!-- NOSSO ESPAÇO -->
+    <section class="page" id="page-espaco">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Nosso espaço</div><h1 class="display">Conheça um espaço para eventos em Belo Horizonte criado para surpreender.</h1><p>Na Pampulha, o Liac Eventos reúne ambientes internos e externos, estrutura de alto padrão e espaços de apoio para casamentos, festas e eventos corporativos de diferentes formatos.</p></div></section>
+      <section class="section"><div class="container split"><div class="split-media"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg" alt="Área externa"></div><div class="split-copy"><div class="eyebrow">Visão geral</div><h2 class="display">Estrutura versátil. Experiência marcante.</h2><p>Cada ambiente do Liac foi pensado para cumprir um papel na experiência do evento. Jardim, salão principal, pub, spa, área kids e boate se conectam para criar uma jornada confortável, elegante e fluida para anfitriões e convidados.</p><p>Com capacidade para eventos de 50 a 300 pessoas, o espaço pode receber diferentes propostas de montagem e circulação, sempre respeitando o formato e as necessidades de cada celebração.</p><a href="#" class="btn btn-dark nav-page" data-page="contato">Agendar visita →</a></div></div></section>
+      <section class="section" style="background:var(--cream)"><div class="container"><div class="section-head"><div><div class="eyebrow">Ambientes</div><h2 class="display">Ambientes que transformam cada etapa do evento.</h2></div></div><div class="content-grid"><article class="content-card"><span class="pill">01</span><h3>Jardim / Cerimônia</h3><p>Um cenário para cerimônias, recepções e momentos ao ar livre, integrado à atmosfera da Pampulha.</p></article><article class="content-card"><span class="pill">02</span><h3>Salão principal</h3><p>O coração da celebração: um salão de alto padrão, 100% climatizado e preparado para diferentes layouts de festa e evento.</p></article><article class="content-card"><span class="pill">03</span><h3>Pub</h3><p>Um ambiente reservado para os anfitriões se prepararem, receberem pessoas especiais e criarem registros antes da celebração.</p></article><article class="content-card"><span class="pill">04</span><h3>Spa / sala dos anfitriões</h3><p>Conforto e privacidade para os momentos de preparação, com um ambiente dedicado antes do início do evento.</p></article><article class="content-card"><span class="pill">05</span><h3>Área Kids</h3><p>Uma estrutura de apoio que amplia o conforto de famílias e convidados em celebrações com crianças.</p></article><article class="content-card"><span class="pill">06</span><h3>Boate</h3><p>Um ambiente pensado para prolongar a energia da festa e criar uma experiência de pista mais envolvente.</p></article></div></div></section>
+      <section class="section"><div class="container"><div class="section-head"><div><div class="eyebrow">Configurações</div><h2 class="display">Um espaço premium, diferentes formas de viver o evento.</h2></div></div><div class="layouts"><div class="layout"><span>Formato</span><strong>Casamento</strong><p>Cerimônia, recepção, jantar e pista em uma experiência integrada.</p></div><div class="layout"><span>Formato</span><strong>Corporativo</strong><p>Plenária, palco, apresentação, networking e confraternização.</p></div><div class="layout"><span>Formato</span><strong>Coquetel</strong><p>Circulação fluida, ilhas gastronômicas, lounges e encontros.</p></div><div class="layout"><span>Formato</span><strong>Social</strong><p>Mesas, pista, ambientação e experiências personalizadas.</p></div></div><div class="note-box">A configuração ideal é definida de acordo com o número de convidados, formato do evento e proposta de montagem.</div></div></section>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="page" id="page-servicos">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Serviços</div><h1 class="display">Seu evento, do seu jeito — com estrutura para fazer acontecer.</h1><p>Se você procura um espaço para casamento, festa ou evento corporativo em Belo Horizonte, o Liac oferece ambientes versáteis e uma equipe preparada para entender a proposta e encontrar a melhor configuração.</p></div></section>
+      <section class="section"><div class="container"><div class="content-grid"><article class="content-card"><span class="pill">Casamentos</span><h3>Casamentos na Pampulha</h3><p>Cerimônia, recepção e festa no mesmo endereço, com ambientes que acompanham cada etapa do casamento e valorizam a experiência dos convidados.</p></article><article class="content-card"><span class="pill">Corporativo</span><h3>Eventos corporativos em BH</h3><p>Um espaço para eventos corporativos em Belo Horizonte ideal para confraternizações, lançamentos, premiações, encontros empresariais e experiências de marca.</p></article><article class="content-card"><span class="pill">Social</span><h3>Festas e eventos sociais em BH</h3><p>Aniversários e celebrações especiais com uma estrutura elegante, confortável e flexível para diferentes estilos de evento.</p></article><article class="content-card"><span class="pill">Formaturas</span><h3>Formaturas e grandes celebrações</h3><p>Uma estrutura preparada para celebrar grandes conquistas com salão, pista, ambientes de apoio e diferentes possibilidades de montagem.</p></article><article class="content-card"><span class="pill">Experiências</span><h3>Eventos personalizados</h3><p>Para propostas criativas, ativações e celebrações que pedem uma configuração exclusiva, o Liac pode ser adaptado à experiência que você deseja criar.</p></article><article class="content-card"><span class="pill">Visita</span><h3>Visita ao espaço</h3><p>Conheça os ambientes presencialmente, compartilhe seu briefing com a equipe e visualize as possibilidades para o seu evento.</p></article></div></div></section>
+      <section class="cta"><div class="container"><h2 class="display">Conte para nós como você imagina o seu evento.</h2><p>Informe o tipo de evento, a data prevista e o número aproximado de convidados. Nossa equipe entra em contato para apresentar disponibilidade e possibilidades do Liac.</p><a href="#" class="btn btn-primary nav-page" data-page="contato">Solicitar proposta →</a></div></section>
+    </section>
+
+    <!-- CLIENTES -->
+    <section class="page" id="page-clientes">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Clientes</div><h1 class="display">Eventos marcantes começam com escolhas que inspiram confiança.</h1><p>Casais, famílias e empresas já escolheram o Liac para celebrar momentos importantes em Belo Horizonte. Aqui, a prova está nas experiências, nos registros e em quem viveu cada evento.</p></div></section>
+      <section class="section"><div class="container"><div class="section-head"><div><div class="eyebrow">Marcas & parceiros</div><h2 class="display">Quem já escolheu o Liac.</h2></div><p>Casais, empresas e parceiros fazem parte da história do Liac. Aqui, reunimos algumas das marcas e celebrações que ajudam a mostrar a versatilidade do espaço.</p></div><div class="logo-cloud"><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div><div class="logo-placeholder">CLIENTE / MARCA</div></div></div></section>
+      <section class="section" style="background:var(--cream)"><div class="container"><div class="section-head"><div><div class="eyebrow">Mini-cases</div><h2 class="display">Mais do que nomes: histórias, soluções e experiências.</h2></div></div><div class="content-grid"><article class="content-card"><span class="pill">Case 01</span><h3>Casamento</h3><p>Conheça a proposta do casal, os ambientes escolhidos, a montagem e os detalhes que transformaram o casamento em uma experiência única.</p></article><article class="content-card"><span class="pill">Case 02</span><h3>Evento corporativo</h3><p>Veja como o espaço foi configurado para atender ao objetivo da empresa, receber os convidados e criar uma experiência de marca memorável.</p></article><article class="content-card"><span class="pill">Case 03</span><h3>Evento social</h3><p>Da ideia à celebração: ambientação, circulação e escolhas que fizeram o evento ganhar identidade própria.</p></article></div></div></section>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="page" id="page-sobre">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Sobre nós</div><h1 class="display">Liac Eventos: alto padrão, cuidado e compromisso em cada celebração.</h1><p>O Liac nasceu para receber eventos sociais e corporativos com estrutura, hospitalidade e atenção aos detalhes. Mais do que oferecer um salão, queremos criar o cenário certo para cada história.</p></div></section>
+      <section class="section"><div class="container split"><div class="split-copy"><div class="eyebrow">Nossa história</div><h2 class="display">Uma estrutura pensada para superar expectativas.</h2><p>Na Pampulha, em Belo Horizonte, o Liac reúne uma estrutura de alto padrão com uma equipe focada em entender cada necessidade e entregar a melhor solução para o evento. Qualidade, seriedade e compromisso fazem parte da essência da marca e da atuação construída junto ao Grupo Let’s Go Festas.</p><p>Nossa missão é simples: oferecer uma experiência à altura do momento, com conforto para os convidados, segurança para os anfitriões e cuidado em cada etapa da realização.</p></div><div class="split-media"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg" alt="Salão Liac"></div></div></section>
+      <section class="section" style="background:var(--cream)"><div class="container"><div class="section-head"><div><div class="eyebrow">Pessoas</div><h2 class="display">Uma equipe focada no seu evento.</h2></div></div><div class="team-grid"><div class="team"><span><b>Atendimento Comercial</b><br>Equipe Liac</span></div><div class="team"><span><b>Produção & Operação</b><br>Equipe Liac</span></div><div class="team"><span><b>Experiência do Cliente</b><br>Equipe Liac</span></div></div></div></section>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="page" id="page-galeria">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Galeria</div><h1 class="display">Uma galeria de eventos em Belo Horizonte para você imaginar o seu.</h1><p>Explore casamentos, eventos sociais, corporativos e diferentes montagens do Liac Eventos na Pampulha. Cada celebração revela uma nova possibilidade para o espaço.</p></div></section>
+      <section class="section"><div class="container"><div class="gallery-filters"><button class="filter active">Todos</button><button class="filter">Casamentos</button><button class="filter">Corporativos</button><button class="filter">Social</button><button class="filter">Jardim</button><button class="filter">Salão</button><button class="filter">Pub & Spa</button></div><div class="gallery-grid"><div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flo-no-laco-184_13_331380-177513465943482.jpeg" alt="Cerimônia"></div><div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/flor-no-laco-150_13_331380-177513524847227.jpeg" alt="Salão"></div><div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/ror-0880_13_331380-177513588596716.jpeg" alt="Pub"></div><div class="gallery-item"><img src="https://cdn0.casamentos.com.br/vendor/1380/3_2/960/jpg/33-previa-maira-luiza-e-lucas-03327-1_13_331380-177513517647995.jpeg" alt="Área externa"></div></div><div class="note-box">Cada montagem revela uma nova possibilidade. Explore diferentes momentos, ambientes e estilos de evento realizados no Liac e encontre referências para a sua celebração.</div></div></section>
+    </section>
+
+    <!-- FAQ -->
+    <section class="page" id="page-faq">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Perguntas frequentes</div><h1 class="display">Perguntas frequentes sobre o Liac Eventos.</h1><p>Reunimos as dúvidas mais comuns de quem procura um espaço para eventos em Belo Horizonte e quer entender melhor a estrutura, a reserva e as possibilidades do Liac.</p></div></section>
+      <section class="section"><div class="container faq-wrap"><div class="faq-side"><div class="eyebrow">Categorias sugeridas</div><h2 class="display">Estrutura, reserva, fornecedores e visita.</h2><p>Encontre respostas rápidas antes de solicitar sua proposta ou agendar uma visita.</p></div><div class="faq-list"><div class="faq-item"><button class="faq-q">Qual é a capacidade do espaço?<span class="plus">+</span></button><div class="faq-a"><p>O Liac recebe eventos de 50 a 300 convidados. A capacidade ideal depende do formato, da montagem e da experiência planejada para a ocasião.</p></div></div><div class="faq-item"><button class="faq-q">O Liac possui estacionamento?<span class="plus">+</span></button><div class="faq-a"><p>Sim. O estacionamento faz parte das conveniências oferecidas pelo Liac para facilitar a chegada dos convidados.</p></div></div><div class="faq-item"><button class="faq-q">O espaço é acessível?<span class="plus">+</span></button><div class="faq-a"><p>Sim. O Liac informa acessibilidade em todo o espaço, contribuindo para uma experiência mais confortável e inclusiva.</p></div></div><div class="faq-item"><button class="faq-q">Posso contratar meu próprio buffet?<span class="plus">+</span></button><div class="faq-a"><p>As condições para contratação de buffet e fornecedores variam conforme a proposta do evento. Fale com nossa equipe para entender as possibilidades disponíveis para a sua data.</p></div></div><div class="faq-item"><button class="faq-q">Como funciona a reserva da data?<span class="plus">+</span></button><div class="faq-a"><p>O processo começa com o contato e, sempre que possível, uma visita ao espaço. Depois de entendermos seu evento, nossa equipe apresenta disponibilidade, configuração e proposta comercial.</p></div></div><div class="faq-item"><button class="faq-q">Qual antecedência é recomendada?<span class="plus">+</span></button><div class="faq-a"><p>Quanto antes você iniciar a busca, mais opções de datas e planejamento terá. Entre em contato para consultar a disponibilidade do Liac na data desejada.</p></div></div></div></div></section>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="page" id="page-contato">
+      <section class="internal-hero"><div class="container"><div class="eyebrow">Fale conosco</div><h1 class="display">Vamos transformar sua ideia em um evento memorável?</h1><p>Fale com a equipe do Liac Eventos, consulte disponibilidade e receba uma proposta para casamento, festa ou evento corporativo em Belo Horizonte.</p></div></section>
+      <section class="section"><div class="container contact-grid"><aside class="contact-info"><div class="eyebrow">Fale com o Liac</div><h2 class="display">Liac Eventos</h2><a href="tel:+5531994470109">(31) 9 9447-0109</a><a href="mailto:contato@liaceventos.com.br">contato@liaceventos.com.br</a><p>Av. Otacílio Negrão de Lima, 7170<br>Bandeirantes (Pampulha)<br>Belo Horizonte — MG</p><p style="margin-top:26px;font-size:.82rem">Horário público informado:<br>Seg–Sex • 09h–17h<br>Sábado • 10h–16h</p></aside><form class="form" onsubmit="event.preventDefault(); alert('Obrigado! Nesta versão demonstrativa, o formulário ainda não está integrado ao atendimento do Liac.');"><div class="eyebrow">Solicite uma proposta</div><div class="fields"><div class="field"><label>Nome</label><input placeholder="Seu nome"></div><div class="field"><label>WhatsApp</label><input placeholder="(31) 99999-9999"></div><div class="field"><label>E-mail</label><input placeholder="voce@email.com"></div><div class="field"><label>Tipo de evento</label><select><option>Selecione</option><option>Casamento</option><option>Corporativo</option><option>Aniversário</option><option>Formatura</option><option>Outro</option></select></div><div class="field"><label>Data prevista</label><input type="date"></div><div class="field"><label>Nº de convidados</label><input type="number" placeholder="Ex.: 180"></div><div class="field full"><label>Conte um pouco sobre o seu evento</label><textarea placeholder="Conte o formato, estilo e o que é indispensável para você."></textarea></div><div class="field full"><button class="btn btn-primary" type="submit">Quero receber uma proposta →</button></div></div></form></div></section>
+      <section style="height:460px"><iframe title="Mapa Liac Eventos" style="border:0;width:100%;height:100%" loading="lazy" src="https://www.google.com/maps?q=Av.%20Otac%C3%ADlio%20Negr%C3%A3o%20de%20Lima%207170%20Belo%20Horizonte&output=embed"></iframe></section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="brand">LIAC<small>Eventos</small></div><p>Espaço para casamentos, festas e eventos corporativos na Pampulha, em Belo Horizonte, com estrutura de alto padrão para receber momentos que merecem ser lembrados.</p></div>
+        <div class="footer-col"><h4>Institucional</h4><a href="#" class="nav-page" data-page="espaco">Nosso Espaço</a><a href="#" class="nav-page" data-page="sobre">Sobre Nós</a><a href="#" class="nav-page" data-page="clientes">Clientes</a></div>
+        <div class="footer-col"><h4>Experiência</h4><a href="#" class="nav-page" data-page="servicos">Serviços</a><a href="#" class="nav-page" data-page="galeria">Galeria</a><a href="#" class="nav-page" data-page="faq">FAQ</a></div>
+        <div class="footer-col"><h4>Contato</h4><a href="tel:+5531994470109">(31) 9 9447-0109</a><a href="mailto:contato@liaceventos.com.br">contato@liaceventos.com.br</a><p>Pampulha • Belo Horizonte</p></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Liac Eventos. Todos os direitos reservados.</span><span>Av. Otacílio Negrão de Lima, 7170 • Bandeirantes (Pampulha) • Belo Horizonte — MG</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40));
+
+    const pages = [...document.querySelectorAll('.page')];
+    const navItems = [...document.querySelectorAll('.nav-page')];
+    const mobilePanel = document.getElementById('mobilePanel');
+    document.querySelector('.menu-btn').addEventListener('click',()=>mobilePanel.classList.toggle('open'));
+
+    navItems.forEach(item=>item.addEventListener('click',e=>{
+      e.preventDefault();
+      const id=item.dataset.page;
+      if(!id) return;
+      pages.forEach(p=>p.classList.toggle('active',p.id===`page-${id}`));
+      document.querySelectorAll('.nav-links .nav-page').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
+      mobilePanel.classList.remove('open');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }));
+
+    document.querySelectorAll('.faq-q').forEach(btn=>btn.addEventListener('click',()=>btn.parentElement.classList.toggle('open')));
+
+    const slides=[...document.querySelectorAll('.slide')], dots=[...document.querySelectorAll('.dot')];
+    let current=0;
+    function showSlide(i){current=i;slides.forEach((s,n)=>s.classList.toggle('active',n===i));dots.forEach((d,n)=>d.classList.toggle('active',n===i));}
+    dots.forEach((d,i)=>d.addEventListener('click',()=>showSlide(i)));
+    setInterval(()=>showSlide((current+1)%slides.length),6500);
+
+    document.querySelectorAll('.gallery-filters').forEach(group=>group.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+      group.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+    })));
+  </script>
+</body>
+</html>

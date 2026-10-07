@@ -1,0 +1,27 @@
+# Liac Eventos: docker compose up -d --build
+# Configure as variáveis num arquivo .env ao lado deste (copie o .env.example).
+name: liac-eventos
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        # Gravadas no build: ao mudar, rode de novo com --build
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://liaceventos.com.br}
+        NEXT_PUBLIC_GTM_ID: ${NEXT_PUBLIC_GTM_ID:-}
+        NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:-}
+    image: liac-eventos-site:latest
+    container_name: liac-eventos
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-3001}:3000"
+    environment:
+      # Lidas em tempo de execução (basta reiniciar o container)
+      LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
+      CAREERS_WEBHOOK_URL: ${CAREERS_WEBHOOK_URL:-}
+    volumes:
+      - next-cache:/app/.next/cache
+
+volumes:
+  next-cache:

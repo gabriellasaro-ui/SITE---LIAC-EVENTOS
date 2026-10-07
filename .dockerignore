@@ -1,0 +1,22 @@
+# Não vai para a imagem: dependências e build locais, segredos, originais das fotos e documentos
+node_modules
+.next
+out
+build
+.git
+.gitignore
+.env
+.env*.local
+*.tsbuildinfo
+npm-debug.log*
+.DS_Store
+.vercel
+Dockerfile
+docker-compose.yml
+.dockerignore
+README.md
+AGENTS.md
+CLAUDE.md
+statics
+ID VISUAL
+referência
