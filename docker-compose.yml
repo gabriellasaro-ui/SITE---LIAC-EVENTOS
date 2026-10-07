@@ -17,6 +17,8 @@ services:
     ports:
       - "${HOST_PORT:-3001}:3000"
     environment:
+      # Porta interna do Next.js (o Dockerfile não fixa mais, então definimos aqui)
+      PORT: "3000"
       # Lidas em tempo de execução (basta reiniciar o container)
       LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
       CAREERS_WEBHOOK_URL: ${CAREERS_WEBHOOK_URL:-}
