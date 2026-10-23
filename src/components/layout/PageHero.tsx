@@ -84,15 +84,13 @@ export function PageHero({
               src={image.src}
               alt=""
               fill
-              priority
+              preload
               quality={90}
               sizes="100vw"
               className="animate-kenburns object-cover"
             />
           </div>
-        ) : (
-          <div aria-hidden="true" className="bg-pattern absolute inset-0 -z-20 opacity-[0.07]" />
-        )}
+        ) : null}
         {/* camada escura para leitura */}
         <div
           aria-hidden="true"

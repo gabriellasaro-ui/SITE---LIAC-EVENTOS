@@ -52,11 +52,6 @@ export default function ContatoPage() {
       <section id="proposta" className="bg-mist scroll-mt-20 py-24 md:py-32">
         <div className="container-site grid grid-cols-1 items-start gap-5 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal className="bg-ink-900 relative overflow-hidden p-9 text-white md:p-12">
-            <div
-              aria-hidden="true"
-              className="bg-pattern absolute inset-x-0 bottom-0 h-3 opacity-80"
-              style={{ backgroundSize: '140px' }}
-            />
             <div className="relative">
               <Eyebrow tone="dark">Fale com o Liac</Eyebrow>
               <h2 className="text-5xl font-light">{site.name}</h2>

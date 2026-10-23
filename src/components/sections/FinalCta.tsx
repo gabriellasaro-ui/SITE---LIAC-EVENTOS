@@ -1,6 +1,5 @@
 import { site, whatsappUrl } from '@/config/site'
 import { ButtonLink } from '@/components/ui/Button'
-import { GeoCluster } from '@/components/ui/GeoShape'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 
@@ -11,7 +10,7 @@ type Props = {
   cta?: string
 }
 
-/** Chamada final: grafite com o padrão geométrico da marca visível, sombra suave por cima e formas flutuando. */
+/** Chamada final sobre fundo grafite. */
 export function FinalCta({
   eyebrow = 'Próximo passo',
   title = 'O primeiro passo para o seu evento pode ser uma visita.',
@@ -20,18 +19,10 @@ export function FinalCta({
 }: Props) {
   return (
     <section className="bg-ink-900 relative isolate overflow-hidden py-28 text-center text-white md:py-40">
-      {/* padrão geométrico da marca bem visível + sombra suave por cima para dar leitura */}
-      <div
-        aria-hidden="true"
-        className="bg-pattern absolute inset-0 -z-20 opacity-60"
-        style={{ backgroundSize: '300px' }}
-      />
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgb(18_18_18/0.85)_0%,rgb(18_18_18/0.7)_45%,rgb(18_18_18/0.42)_100%)]"
       />
-      <GeoCluster className="absolute -top-6 -left-10 h-56 w-56 opacity-40 max-md:hidden" />
-      <GeoCluster variant="b" className="absolute -right-8 -bottom-8 h-64 w-64 opacity-40 max-md:hidden" />
       <div className="container-site relative">
         <Reveal>
           <Eyebrow tone="dark" className="justify-center">

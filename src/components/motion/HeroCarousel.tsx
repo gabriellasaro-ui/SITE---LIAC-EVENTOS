@@ -53,7 +53,7 @@ export function HeroCarousel({ photos, interval = 6500, dotsClassName }: Props) 
                 alt=""
                 fill
                 quality={90}
-                priority={i === 0}
+                preload={i === 0}
                 sizes="100vw"
                 className={cn('object-cover', i === active && 'animate-kenburns')}
               />

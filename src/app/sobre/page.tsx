@@ -5,7 +5,6 @@ import { pageMetadata } from '@/lib/seo'
 import { webPageSchema } from '@/lib/schema'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { PageHero } from '@/components/layout/PageHero'
-import { GeoShape } from '@/components/ui/GeoShape'
 import { Icon, type IconName } from '@/components/ui/Icon'
 import { Eyebrow, SectionHeading } from '@/components/ui/SectionHeading'
 import { ParallaxImage } from '@/components/motion/Parallax'
@@ -72,7 +71,6 @@ export default function SobrePage() {
               sizes="(min-width: 1024px) 620px, 100vw"
               className="photo-frame aspect-[4/5] w-full"
             />
-            <GeoShape shape="half" className="text-accent-400 animate-float absolute -bottom-6 -left-6 w-28" />
           </Reveal>
         </div>
       </section>
@@ -87,11 +85,6 @@ export default function SobrePage() {
                 key={t.role}
                 className="bg-paper group relative h-full overflow-hidden p-10 transition duration-500 hover:-translate-y-2"
               >
-                <div
-                  aria-hidden="true"
-                  className="bg-pattern absolute inset-x-0 top-0 h-2 opacity-80"
-                  style={{ backgroundSize: '120px' }}
-                />
                 <Icon name={t.icon} size={30} className="text-primary-600" />
                 <h3 className="mt-8 text-3xl font-light">{t.role}</h3>
                 <p className="eyebrow text-ink-950/55 mt-2 text-[0.6rem]">Equipe Liac</p>

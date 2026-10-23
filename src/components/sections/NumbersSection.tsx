@@ -32,7 +32,6 @@ export function NumbersSection() {
   ]
   return (
     <section className="bg-ink-900 relative overflow-hidden py-24 text-white md:py-32">
-      <div aria-hidden="true" className="bg-pattern absolute inset-0 opacity-[0.06]" />
       <div className="container-site relative">
         <SectionHeading
           tone="dark"

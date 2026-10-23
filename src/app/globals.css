@@ -46,7 +46,6 @@
   /* igual ao rise, mas sem começar invisível: o texto já conta como LCP no 1º paint */
   --animate-rise-in: rise-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-word: word 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-float: float 7s ease-in-out infinite;
   --animate-spin-slow: spin 40s linear infinite;
   --animate-kenburns: kenburns 14s ease-out both;
 
@@ -83,15 +82,6 @@
     }
     to {
       transform: none;
-    }
-  }
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0) rotate(var(--r, 0deg));
-    }
-    50% {
-      transform: translateY(-14px) rotate(var(--r, 0deg));
     }
   }
   @keyframes kenburns {
@@ -210,12 +200,6 @@ html.motion-fallback [data-reveal] {
 
 @utility photo-frame {
   box-shadow: 0 40px 80px -40px rgb(31 31 31 / 0.55);
-}
-
-/* Padrão geométrico da marca como textura de fundo */
-@utility bg-pattern {
-  background-image: url('/images/marca/padrao-geometrico.webp');
-  background-size: 360px;
 }
 
 /* Esconde a barra de rolagem (carrosséis com scroll-snap; continuam roláveis por toque/teclado) */

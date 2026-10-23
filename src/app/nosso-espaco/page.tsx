@@ -7,7 +7,6 @@ import { webPageSchema } from '@/lib/schema'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { PageHero } from '@/components/layout/PageHero'
 import { ButtonLink } from '@/components/ui/Button'
-import { GeoShape } from '@/components/ui/GeoShape'
 import { Icon } from '@/components/ui/Icon'
 import { Eyebrow, SectionHeading } from '@/components/ui/SectionHeading'
 import { ParallaxImage } from '@/components/motion/Parallax'
@@ -47,7 +46,6 @@ export default function NossoEspacoPage() {
               sizes="(min-width: 1024px) 620px, 100vw"
               className="photo-frame aspect-[4/5] w-full"
             />
-            <GeoShape shape="ring" className="text-primary-300 animate-float absolute -top-8 -right-6 w-24" />
           </Reveal>
           <Reveal>
             <Eyebrow>Visão geral</Eyebrow>

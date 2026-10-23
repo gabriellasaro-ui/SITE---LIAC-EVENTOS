@@ -1,11 +1,8 @@
 import { ButtonLink } from '@/components/ui/Button'
-import { GeoCluster } from '@/components/ui/GeoShape'
 
 export default function NotFound() {
   return (
     <section className="bg-ink-900 relative flex min-h-svh items-center overflow-hidden pt-[92px] text-white">
-      <div aria-hidden="true" className="bg-pattern absolute inset-0 opacity-[0.06]" />
-      <GeoCluster className="absolute right-[6%] bottom-[10%] h-64 w-64 opacity-60 max-md:hidden" />
       <div className="container-site relative py-20">
         <p className="font-display text-primary-300 text-[clamp(7rem,22vw,15rem)] leading-none font-light">404</p>
         <h1 className="mt-4 max-w-2xl text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.02]">

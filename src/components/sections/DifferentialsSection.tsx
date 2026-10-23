@@ -1,5 +1,4 @@
 import { differentials } from '@/content/venue'
-import { GeoCluster } from '@/components/ui/GeoShape'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Stagger, StaggerItem } from '@/components/motion/Reveal'
@@ -8,7 +7,6 @@ import { Stagger, StaggerItem } from '@/components/motion/Reveal'
 export function DifferentialsSection() {
   return (
     <section className="bg-primary-100 relative overflow-hidden py-24 md:py-32">
-      <GeoCluster variant="b" className="absolute -top-10 -right-10 h-72 w-72 opacity-50 max-md:hidden" />
       <div className="container-site relative">
         <SectionHeading eyebrow="Por que o Liac" title="Por que escolher o Liac para o seu evento em Belo Horizonte?" />
         <Stagger as="ul" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>

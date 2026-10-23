@@ -1,5 +1,4 @@
 import { ButtonLink } from '@/components/ui/Button'
-import { GeoShape } from '@/components/ui/GeoShape'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 import { VideoTour } from './VideoTour'
@@ -10,7 +9,6 @@ export function TourSection() {
     <section id="tour" className="bg-paper scroll-mt-20 py-24 md:py-32">
       <div className="container-site">
         <div className="bg-accent-600 relative grid grid-cols-1 overflow-hidden text-white lg:grid-cols-[0.75fr_1.25fr]">
-          <GeoShape shape="arc" className="text-accent-400 absolute -bottom-10 -left-10 w-48 opacity-60" />
           <Reveal className="relative flex flex-col justify-center p-10 md:p-14">
             <Eyebrow tone="dark" className="!text-primary-100">
               Tour imersivo

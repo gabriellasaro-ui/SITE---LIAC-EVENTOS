@@ -1,7 +1,6 @@
 import { photos } from '@/content/photos'
 import { quickFacts } from '@/content/venue'
 import { ButtonLink } from '@/components/ui/Button'
-import { GeoShape } from '@/components/ui/GeoShape'
 import { Icon } from '@/components/ui/Icon'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 import { Parallax, ParallaxImage } from '@/components/motion/Parallax'
@@ -70,12 +69,6 @@ export function IntroSection() {
             <p className="font-display text-xl uppercase">Na orla da Pampulha</p>
             <p className="text-ink-950/65 mt-1 text-sm">Na Pampulha, um endereço marcante para celebrar.</p>
           </Reveal>
-          <GeoShape
-            shape="arc"
-            className="text-primary-300 animate-float absolute -top-8 left-[6%] w-24 opacity-90"
-            style={{ animationDelay: '0.6s' }}
-          />
-          <GeoShape shape="ring" className="text-accent-400 animate-float absolute right-[-18px] -bottom-6 w-16" />
         </div>
       </div>
     </section>

@@ -46,7 +46,6 @@ export function MobileMenu({ onDark = false }: { onDark?: boolean }) {
       {open &&
         createPortal(
           <div id="menu-mobile" className="bg-ink-900 fixed inset-0 z-40 overflow-y-auto pt-[92px] xl:hidden">
-            <div aria-hidden="true" className="bg-pattern absolute inset-x-0 bottom-0 h-40 opacity-15" />
             <nav aria-label="Menu mobile" className="container-site relative py-8">
               <ul className="flex flex-col">
                 {[{ label: 'Home', href: '/' }, ...site.nav].map((item, i) => {
