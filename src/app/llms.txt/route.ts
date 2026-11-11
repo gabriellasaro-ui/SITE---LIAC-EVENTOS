@@ -29,7 +29,11 @@ export function GET() {
     ...(site.openingHours ?? []).map((h) => `- Atendimento (${h.days}): ${h.opens} às ${h.closes}`),
     ...(r
       ? [
-          `- Avaliação: nota ${r.value.toLocaleString('pt-BR')} de 5 no ${r.platform}, com ${r.count} avaliações; mais de ${facts.couples} casais contrataram o espaço (perfil público)`,
+          `- Avaliação: nota ${r.value.toLocaleString('pt-BR')} de 5 no ${r.platform}, com ${r.count} avaliações (perfil público)`,
+          ...(site.otherRatings ?? []).map(
+            (o) =>
+              `- Avaliação no ${o.platform}: nota ${o.value.toLocaleString('pt-BR')} de 5, com ${o.count} avaliações; mais de ${facts.couples} casais contrataram o espaço`,
+          ),
         ]
       : []),
     `- Como chegar: ${directionsUrl}`,

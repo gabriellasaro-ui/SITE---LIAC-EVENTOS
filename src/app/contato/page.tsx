@@ -36,7 +36,7 @@ export default function ContatoPage() {
       <JsonLd data={webPageSchema({ path: '/contato', name: title, description, type: 'ContactPage' })} />
       <PageHero
         crumb={{ label: 'Fale conosco', href: '/contato' }}
-        image={photos.jardimPalmeiras}
+        image={photos.jardimArco}
         title="Vamos transformar sua ideia em um evento memorável?"
         highlight={{ memorável: 'text-highlight' }}
         description="Fale com a equipe do Liac Eventos, consulte disponibilidade e receba uma proposta para casamento, festa ou evento corporativo em Belo Horizonte."

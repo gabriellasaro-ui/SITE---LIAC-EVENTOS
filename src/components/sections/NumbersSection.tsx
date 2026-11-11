@@ -3,7 +3,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { CountUp } from '@/components/motion/Effects'
 import { Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal'
 
-/** "Autoridade em números" (home): bloco grafite com contadores. Números confirmados (site + Casamentos.com.br). */
+/** "Autoridade em números" (home): bloco grafite com contadores. Números confirmados (site, Google e Casamentos.com.br). */
 export function NumbersSection() {
   const nota = site.rating?.value.toLocaleString('pt-BR', { minimumFractionDigits: 1 })
   const items = [
@@ -23,7 +23,7 @@ export function NumbersSection() {
           <span className="text-[0.5em]">/5</span>
         </>
       ),
-      label: 'avaliação pública no Casamentos.com.br',
+      label: `nota em ${site.rating?.count} avaliações públicas no ${site.rating?.platform}`,
     },
     {
       value: <CountUp to={facts.eventsPerDay} duration={0.6} />,
@@ -54,8 +54,8 @@ export function NumbersSection() {
         </Stagger>
         <Reveal>
           <p className="mt-5 text-xs text-white/55">
-            *Avaliação e volume de casais conforme perfil público do Liac no Casamentos.com.br, consultado em outubro de
-            2026.
+            *Nota conforme o perfil do Liac no Google (consultado em novembro de 2026) e volume de casais conforme o
+            perfil no Casamentos.com.br (consultado em outubro de 2026).
           </p>
         </Reveal>
       </div>

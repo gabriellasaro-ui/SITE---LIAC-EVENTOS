@@ -3,7 +3,9 @@
 import { m, useScroll, useSpring, useTransform } from 'motion/react'
 import Image from 'next/image'
 import { useRef, type ReactNode } from 'react'
+import type { Photo } from '@/content/photos'
 import { cn } from '@/lib/cn'
+import { blurProps } from '@/lib/image'
 
 /** Move o conteúdo verticalmente em velocidade diferente da rolagem. `speed` positivo = sobe mais rápido. */
 export function Parallax({
@@ -30,28 +32,17 @@ export function Parallax({
 }
 
 type ParallaxImageProps = {
-  src: string
-  alt: string
+  photo: Photo
   sizes: string
   className?: string
   imgClassName?: string
   /** Intensidade do movimento da foto dentro da moldura (%). Máx. ~6 (a foto tem só 8% de sobra em cima/embaixo). */
   strength?: number
-  priority?: boolean
   children?: ReactNode
 }
 
 /** Foto que "desliza" dentro da moldura ao rolar: o efeito parallax clássico. */
-export function ParallaxImage({
-  src,
-  alt,
-  sizes,
-  className,
-  imgClassName,
-  strength = 6,
-  priority,
-  children,
-}: ParallaxImageProps) {
+export function ParallaxImage({ photo, sizes, className, imgClassName, strength = 6, children }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], [`-${strength}%`, `${strength}%`])
@@ -59,12 +50,11 @@ export function ParallaxImage({
     <div ref={ref} className={cn('relative overflow-hidden', className)}>
       <m.div style={{ y }} className="absolute inset-x-0 -inset-y-[8%]">
         <Image
-          src={src}
-          alt={alt}
+          src={photo.src}
+          alt={photo.alt}
           fill
           sizes={sizes}
-          quality={90}
-          priority={priority}
+          {...blurProps(photo)}
           className={cn('object-cover', imgClassName)}
         />
       </m.div>

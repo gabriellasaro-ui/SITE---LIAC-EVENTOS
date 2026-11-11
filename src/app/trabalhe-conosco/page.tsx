@@ -48,7 +48,7 @@ export default function TrabalheConoscoPage() {
       <JsonLd data={webPageSchema({ path: '/trabalhe-conosco', name: title, description })} />
       <PageHero
         crumb={{ label: 'Trabalhe conosco', href: '/trabalhe-conosco' }}
-        image={photos.salaoImperial}
+        image={photos.festaBanda}
         title="Venha fazer parte da equipe que faz cada evento acontecer."
         highlight={{ acontecer: 'text-highlight' }}
         description={`No ${site.name}, cada celebração é feita por muita gente boa. Se você gosta de receber pessoas e de trabalhar com excelência, cadastre seu currículo.`}

@@ -23,14 +23,17 @@ export function Stars({ value, size = 18, className }: { value: number; size?: n
   )
 }
 
+const formatRating = (value: number) => value.toLocaleString('pt-BR', { minimumFractionDigits: 1 })
+
 /**
- * Avaliação pública (site.rating, Casamentos.com.br). Exibida no site; não vai para o schema.
+ * Avaliação pública (site.rating = Google; site.otherRatings = demais perfis). Exibida no site; não vai para o schema.
  * `variant="card"` = bloco de destaque; `variant="badge"` = selo compacto.
  */
 export function PublicRating({ variant = 'card', className }: { variant?: 'card' | 'badge'; className?: string }) {
   const r = site.rating
   if (!r) return null
-  const nota = r.value.toLocaleString('pt-BR', { minimumFractionDigits: 1 })
+  const nota = formatRating(r.value)
+  const others = site.otherRatings ?? []
 
   if (variant === 'badge') {
     return (
@@ -71,9 +74,26 @@ export function PublicRating({ variant = 'card', className }: { variant?: 'card'
       <div>
         <Stars value={r.value} size={24} />
         <p className="font-display mt-3 text-2xl uppercase">
-          {r.count} avaliações · mais de {facts.couples} casais
+          {r.count} avaliações no {r.platform} · mais de {facts.couples} casais
         </p>
-        <p className="text-ink-950/65 mt-1">Perfil público do Liac no {r.platform}.</p>
+        <p className="text-ink-950/65 mt-1">
+          Perfil público do Liac no {r.platform}
+          {others.map((o) => (
+            <span key={o.platform}>
+              {' '}
+              · nota {formatRating(o.value)} no{' '}
+              <a
+                href={o.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ink-950 underline decoration-1 underline-offset-4"
+              >
+                {o.platform}
+              </a>
+            </span>
+          ))}
+          .
+        </p>
       </div>
       <a
         href={r.url}

@@ -7,6 +7,7 @@ import { HeroCarousel } from '@/components/motion/HeroCarousel'
 import { Rise, SplitWords } from '@/components/motion/SplitWords'
 import { breadcrumbSchema } from '@/lib/schema'
 import { cn } from '@/lib/cn'
+import { blurProps } from '@/lib/image'
 
 type Props = {
   /** Rótulo acima do título (usado só na home) */
@@ -85,8 +86,9 @@ export function PageHero({
               alt=""
               fill
               preload
-              quality={90}
+              quality={80}
               sizes="100vw"
+              {...blurProps(image)}
               className="animate-kenburns object-cover"
             />
           </div>

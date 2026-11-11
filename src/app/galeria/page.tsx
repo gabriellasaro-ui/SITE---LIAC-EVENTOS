@@ -38,7 +38,7 @@ export default function GaleriaPage() {
       />
       <PageHero
         crumb={{ label: 'Galeria', href: '/galeria' }}
-        image={photos.salaoBar}
+        image={photos.salaoPista}
         title="Uma galeria de eventos em Belo Horizonte para você imaginar o seu."
         highlight={{ seu: 'text-highlight' }}
         description="Explore casamentos, eventos sociais, corporativos e diferentes montagens do Liac Eventos na Pampulha. Cada celebração revela uma nova possibilidade para o espaço."

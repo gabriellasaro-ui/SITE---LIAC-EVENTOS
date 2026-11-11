@@ -30,7 +30,7 @@ export default function FaqPage() {
       <JsonLd data={[webPageSchema({ path: '/perguntas-frequentes', name: title, description }), faqSchema(allFaqs)]} />
       <PageHero
         crumb={{ label: 'Perguntas frequentes', href: '/perguntas-frequentes' }}
-        image={photos.jardimNoite}
+        image={photos.cerimoniaNoite}
         title="Perguntas frequentes sobre o Liac Eventos."
         highlight={{ Liac: 'text-highlight' }}
         description="Reunimos as dúvidas mais comuns de quem procura um espaço para eventos em Belo Horizonte e quer entender melhor a estrutura, a reserva e as possibilidades do Liac."

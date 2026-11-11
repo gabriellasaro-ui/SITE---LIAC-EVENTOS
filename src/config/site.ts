@@ -2,7 +2,7 @@ import type { SiteConfig } from './types'
 
 /*
  * LIAC EVENTOS. Fontes: wireframe aprovado (referência/), site antigo (liaceventos.com.br)
- * e perfil público no Casamentos.com.br (conferidos em 05/10/2026).
+ * e perfil público no Casamentos.com.br (conferidos em 05/10/2026); avaliações do Google em 11/11/2026.
  * Não reaproveitar fatos da Let's Go (endereço, CEP, telefones e avaliações são de outra empresa).
  */
 
@@ -14,6 +14,10 @@ const addressQuery = encodeURIComponent(
 
 /** Perfil público no Casamentos.com.br (avaliações de casais) */
 export const casamentosUrl = 'https://www.casamentos.com.br/salao-casamento/liac-eventos--e331380'
+
+/** Perfil da empresa no Google Maps, já aberto na aba de avaliações */
+export const googleReviewsUrl =
+  'https://www.google.com/maps/place/Liac+Eventos/@-19.8550334,-43.9982965,17z/data=!4m8!3m7!1s0xa6915dccb01d45:0x803ed9717efffb3a!8m2!3d-19.8550334!4d-43.9982965!9m1!1b1!16s%2Fg%2F11np90kn6r'
 
 export const site: SiteConfig = {
   name: 'Liac Eventos',
@@ -67,8 +71,9 @@ export const site: SiteConfig = {
     { days: 'Segunda a sexta', opens: '09:00', closes: '17:00', schema: 'Monday,Tuesday,Wednesday,Thursday,Friday' },
     { days: 'Sábado', opens: '10:00', closes: '16:00', schema: 'Saturday' },
   ],
-  // Perfil público no Casamentos.com.br (exibido no site; NÃO vai para o schema)
-  rating: { value: 4.8, count: 10, platform: 'Casamentos.com.br', url: `${casamentosUrl}/opinioes` },
+  // Avaliações públicas (exibidas no site; NÃO vão para o schema). Google conferido em 11/11/2026.
+  rating: { value: 4.8, count: 524, platform: 'Google', url: googleReviewsUrl },
+  otherRatings: [{ value: 4.8, count: 10, platform: 'Casamentos.com.br', url: `${casamentosUrl}/opinioes` }],
   // TODO: razão social e CNPJ
   legal: {
     companyName: undefined,

@@ -1,5 +1,5 @@
 import type { IconName } from '@/components/ui/Icon'
-import { photos, type Photo } from './photos'
+import { photos, verticals, type Photo } from './photos'
 
 /** Faixa de destaques logo abaixo do topo das páginas. */
 export const highlights: { label: string; icon: IconName }[] = [
@@ -58,14 +58,14 @@ export const spaces: Space[] = [
     slug: 'jardim',
     title: 'Jardim / Cerimônia',
     text: 'Um cenário para cerimônias, recepções e momentos ao ar livre, integrado à atmosfera da Pampulha.',
-    photo: photos.jardimPalmeiras,
+    photo: photos.jardimMontado,
     icon: 'palm',
   },
   {
     slug: 'salao',
     title: 'Salão principal',
     text: 'O coração da celebração: um salão de alto padrão, 100% climatizado e preparado para diferentes layouts de festa e evento.',
-    photo: photos.salaoFlores,
+    photo: photos.salaoMesas,
     icon: 'sparkles',
   },
   {
@@ -79,7 +79,7 @@ export const spaces: Space[] = [
     slug: 'spa',
     title: 'Spa / sala dos anfitriões',
     text: 'Conforto e privacidade para os momentos de preparação, com um ambiente dedicado antes do início do evento.',
-    photo: photos.spaBanheira,
+    photo: photos.spaSala,
     icon: 'bath',
   },
   {
@@ -93,7 +93,7 @@ export const spaces: Space[] = [
     slug: 'boate',
     title: 'Boate',
     text: 'Um ambiente pensado para prolongar a energia da festa e criar uma experiência de pista mais envolvente.',
-    photo: photos.boate15,
+    photo: photos.boateLounge,
     icon: 'music',
   },
 ]
@@ -113,22 +113,22 @@ export const homeServices: { title: string; text: string; photo: Photo }[] = [
   {
     title: 'Casamentos',
     text: 'Um espaço para casamento em Belo Horizonte que reúne cerimônia, recepção e festa em uma experiência integrada e sofisticada.',
-    photo: photos.cerimoniaArco,
+    photo: verticals.cerimoniaAltar,
   },
   {
     title: 'Eventos corporativos',
     text: 'Confraternizações, lançamentos, premiações, encontros empresariais e experiências de marca em um espaço de eventos na Pampulha.',
-    photo: photos.salaoMontagem,
+    photo: verticals.salaoBuffet,
   },
   {
     title: 'Eventos sociais',
     text: 'Aniversários, formaturas e celebrações especiais com estrutura versátil para transformar cada ocasião em uma experiência única.',
-    photo: photos.boate15,
+    photo: verticals.salao15,
   },
   {
     title: 'Eventos personalizados',
     text: 'Projetos autorais e celebrações sob medida, combinando os ambientes do Liac de acordo com a proposta do seu evento.',
-    photo: photos.decoracaoTropical,
+    photo: verticals.mesa15,
   },
 ]
 
@@ -138,21 +138,21 @@ export const services: Service[] = [
     tag: 'Casamentos',
     title: 'Casamentos na Pampulha',
     text: 'Cerimônia, recepção e festa no mesmo endereço, com ambientes que acompanham cada etapa do casamento e valorizam a experiência dos convidados.',
-    photo: photos.cerimoniaArco,
+    photo: photos.cerimoniaAltar,
     icon: 'heart',
   },
   {
     tag: 'Corporativo',
     title: 'Eventos corporativos em BH',
     text: 'Um espaço para eventos corporativos em Belo Horizonte ideal para confraternizações, lançamentos, premiações, encontros empresariais e experiências de marca.',
-    photo: photos.salaoMontagem,
+    photo: photos.salaoBuffet,
     icon: 'briefcase',
   },
   {
     tag: 'Social',
     title: 'Festas e eventos sociais em BH',
     text: 'Aniversários e celebrações especiais com uma estrutura elegante, confortável e flexível para diferentes estilos de evento.',
-    photo: photos.boateAniversario,
+    photo: photos.boateLounge,
     icon: 'party',
   },
   {
@@ -166,7 +166,7 @@ export const services: Service[] = [
     tag: 'Experiências',
     title: 'Eventos personalizados',
     text: 'Para propostas criativas, ativações e celebrações que pedem uma configuração exclusiva, o Liac pode ser adaptado à experiência que você deseja criar.',
-    photo: photos.decoracaoTropical,
+    photo: photos.mesa15,
     icon: 'gem',
   },
   {

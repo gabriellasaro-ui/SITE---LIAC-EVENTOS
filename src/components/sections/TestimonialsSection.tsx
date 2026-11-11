@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 import { TestimonialsCarousel } from './TestimonialsCarousel'
 
-/** "Prova social": avaliações públicas reais do Casamentos.com.br em carrossel. */
+/** "Prova social": avaliações públicas reais (Google e Casamentos.com.br) em carrossel. */
 export function TestimonialsSection({ full = false }: { full?: boolean }) {
   return (
     <section className="bg-mist relative overflow-hidden py-24 md:py-32">
@@ -13,8 +13,8 @@ export function TestimonialsSection({ full = false }: { full?: boolean }) {
         {full ? (
           <SectionHeading
             eyebrow="Avaliações públicas"
-            title="O que dizem os casais que celebraram no Liac."
-            description="Avaliações publicadas no perfil do Liac no Casamentos.com.br, com o texto original de cada casal."
+            title="O que diz quem já celebrou no Liac."
+            description="Avaliações publicadas nos perfis do Liac no Google e no Casamentos.com.br, com o texto original de cada cliente e convidado."
           />
         ) : (
           <SectionHeading

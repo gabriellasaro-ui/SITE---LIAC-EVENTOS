@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { homeServices } from '@/content/venue'
+import { blurProps } from '@/lib/image'
 import { ButtonLink } from '@/components/ui/Button'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -31,8 +32,8 @@ export function ServicesShowcase() {
                   src={s.photo.src}
                   alt={s.photo.alt}
                   fill
-                  sizes="(min-width: 1024px) 600px, (min-width: 640px) 50vw, 100vw"
-                  quality={85}
+                  sizes="(min-width: 1280px) 300px, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  {...blurProps(s.photo)}
                   className="object-cover transition-transform duration-[1400ms] group-hover:scale-110"
                 />
                 <span

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import type { Photo } from '@/content/photos'
 import { cn } from '@/lib/cn'
+import { blurProps } from '@/lib/image'
 
 type Props = {
   photos: Photo[]
@@ -52,9 +53,10 @@ export function HeroCarousel({ photos, interval = 6500, dotsClassName }: Props) 
                 src={photo.src}
                 alt=""
                 fill
-                quality={90}
+                quality={80}
                 preload={i === 0}
                 sizes="100vw"
+                {...blurProps(photo)}
                 className={cn('object-cover', i === active && 'animate-kenburns')}
               />
             )}

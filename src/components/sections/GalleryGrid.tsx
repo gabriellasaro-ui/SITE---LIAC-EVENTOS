@@ -7,6 +7,7 @@ import type { Photo, PhotoCategory } from '@/content/photos'
 import { Icon } from '@/components/ui/Icon'
 import { PhotoTile } from '@/components/ui/PhotoTile'
 import { cn } from '@/lib/cn'
+import { blurProps } from '@/lib/image'
 
 // Animação de layout (filtro) só aqui: o resto do site usa o pacote leve do Motion
 const loadLayoutFeatures = () => import('@/components/motion/features-layout').then((mod) => mod.default)
@@ -88,7 +89,7 @@ export function GalleryGrid({ items, limit, lite }: { items: Photo[]; limit?: nu
                   aria-label={`${photo.category}: ${photo.caption}. Ampliar foto`}
                   className="block w-full cursor-zoom-in"
                 >
-                  <PhotoTile photo={photo} zoomable sizes="(min-width: 1024px) 820px, (min-width: 640px) 50vw, 100vw" />
+                  <PhotoTile photo={photo} zoomable />
                 </button>
               </m.li>
             ))}
@@ -123,8 +124,9 @@ export function GalleryGrid({ items, limit, lite }: { items: Photo[]; limit?: nu
                     src={current.src}
                     alt={current.alt}
                     fill
-                    sizes="94vw"
-                    quality={90}
+                    sizes="(min-width: 1280px) 1200px, 94vw"
+                    quality={80}
+                    {...blurProps(current, 'contain')}
                     className="object-contain"
                   />
                 </m.div>

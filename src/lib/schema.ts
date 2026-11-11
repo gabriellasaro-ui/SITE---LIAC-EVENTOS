@@ -1,5 +1,6 @@
 import { absoluteUrl, directionsUrl, facts, site } from '@/config/site'
 import type { FaqItem } from '@/content/faq'
+import { photos } from '@/content/photos'
 import { differentials, services, spaces } from '@/content/venue'
 import { ogImageFor } from '@/lib/seo'
 
@@ -7,7 +8,7 @@ import { ogImageFor } from '@/lib/seo'
  * Builders de dados estruturados (schema.org / JSON-LD).
  * Base do SEO técnico e do GEO: dão às buscas e às IAs fatos inequívocos
  * sobre a entidade (quem é, onde fica, o que oferece, como contatar).
- * A avaliação do Casamentos.com.br NÃO entra aqui (política do Google para avaliações de terceiros).
+ * As avaliações públicas (Google, Casamentos.com.br) NÃO entram aqui (política do Google para avaliações).
  */
 
 const ORG_ID = `${site.url}/#organizacao`
@@ -24,11 +25,7 @@ export function businessSchema() {
     slogan: site.tagline,
     url: site.url,
     logo: { '@type': 'ImageObject', url: absoluteUrl(site.logo.src), width: site.logo.width, height: site.logo.height },
-    image: [
-      absoluteUrl(site.ogImage),
-      absoluteUrl('/images/fotos/jardim-cerimonia-palmeiras.webp'),
-      absoluteUrl('/images/fotos/salao-casamento-decorado-flores.webp'),
-    ],
+    image: [absoluteUrl(site.ogImage), absoluteUrl(photos.jardimMontado.src), absoluteUrl(photos.mesaDoces.src)],
     telephone: contact.phones[0]?.e164,
     email: contact.email,
     currenciesAccepted: 'BRL',

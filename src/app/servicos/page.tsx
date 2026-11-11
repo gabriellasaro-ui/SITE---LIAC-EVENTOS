@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { photos } from '@/content/photos'
+import { blurProps } from '@/lib/image'
 import { services } from '@/content/venue'
 import { pageMetadata } from '@/lib/seo'
 import { servicesSchema, webPageSchema } from '@/lib/schema'
@@ -32,7 +33,7 @@ export default function ServicosPage() {
       <JsonLd data={[webPageSchema({ path: '/servicos', name: title, description }), servicesSchema()]} />
       <PageHero
         crumb={{ label: 'Serviços', href: '/servicos' }}
-        image={photos.salaoDoces}
+        image={photos.salao15}
         title="Seu evento, do seu jeito, com estrutura para fazer acontecer."
         highlight={{ jeito: 'text-highlight' }}
         description="Se você procura um espaço para casamento, festa ou evento corporativo em Belo Horizonte, o Liac oferece ambientes versáteis e uma equipe preparada para entender a proposta e encontrar a melhor configuração."
@@ -63,8 +64,8 @@ export default function ServicosPage() {
                         src={s.photo.src}
                         alt={s.photo.alt}
                         fill
-                        quality={85}
-                        sizes="(min-width: 1024px) 760px, (min-width: 768px) 50vw, 100vw"
+                        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        {...blurProps(s.photo)}
                         className="object-cover transition-transform duration-[1400ms] group-hover:scale-110"
                       />
                       <span className="eyebrow bg-paper text-primary-700 absolute top-4 left-4 px-3 py-1.5 text-[0.6rem]">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { photos } from '@/content/photos'
+import { photos, verticals } from '@/content/photos'
+import { blurProps } from '@/lib/image'
 import { layouts, spaces } from '@/content/venue'
 import { pageMetadata } from '@/lib/seo'
 import { webPageSchema } from '@/lib/schema'
@@ -41,9 +42,8 @@ export default function NossoEspacoPage() {
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <Reveal scale={0.95} className="relative">
             <ParallaxImage
-              src={photos.salaoLounge.src}
-              alt={photos.salaoLounge.alt}
-              sizes="(min-width: 1024px) 620px, 100vw"
+              photo={verticals.noivaJardimInverno}
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) 45vw, 100vw"
               className="photo-frame aspect-[4/5] w-full"
             />
           </Reveal>
@@ -82,8 +82,8 @@ export default function NossoEspacoPage() {
                     src={s.photo.src}
                     alt={s.photo.alt}
                     fill
-                    quality={85}
-                    sizes="(min-width: 1024px) 800px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    {...blurProps(s.photo)}
                     className="object-cover transition-transform duration-[1400ms] group-hover:scale-110"
                   />
                   <span className="bg-paper text-ink-950 font-display absolute top-0 left-0 grid h-14 w-14 place-items-center text-xl">

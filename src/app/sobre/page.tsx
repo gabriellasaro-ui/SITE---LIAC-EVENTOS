@@ -41,7 +41,7 @@ export default function SobrePage() {
       <JsonLd data={webPageSchema({ path: '/sobre', name: title, description, type: 'AboutPage' })} />
       <PageHero
         crumb={{ label: 'Sobre nós', href: '/sobre' }}
-        image={photos.loungeNoite}
+        image={photos.recepcaoJardim}
         title="Liac Eventos: alto padrão, cuidado e compromisso em cada celebração."
         highlight={{ celebração: 'text-highlight' }}
         description="O Liac nasceu para receber eventos sociais e corporativos com estrutura, hospitalidade e atenção aos detalhes. Mais do que oferecer um salão, queremos criar o cenário certo para cada história."
@@ -66,9 +66,8 @@ export default function SobrePage() {
           </Reveal>
           <Reveal scale={0.95} className="relative">
             <ParallaxImage
-              src={photos.salaoVertical.src}
-              alt={photos.salaoVertical.alt}
-              sizes="(min-width: 1024px) 620px, 100vw"
+              photo={photos.beijoFogosVertical}
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) 45vw, 100vw"
               className="photo-frame aspect-[4/5] w-full"
             />
           </Reveal>

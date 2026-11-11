@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { photos } from '@/content/photos'
 import { Icon } from '@/components/ui/Icon'
+import { blurProps } from '@/lib/image'
 
 export const TOUR_VIDEO = '/videos/tour-liac-eventos.mp4'
 
@@ -40,7 +41,8 @@ export function VideoTour() {
             src={photos.tourCapa.src}
             alt=""
             fill
-            sizes="(min-width: 1024px) 760px, 100vw"
+            sizes="(min-width: 1280px) 1040px, (min-width: 1024px) 80vw, 100vw"
+            {...blurProps(photos.tourCapa)}
             className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
           />
           <span aria-hidden="true" className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />

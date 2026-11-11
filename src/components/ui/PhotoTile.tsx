@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import type { Photo } from '@/content/photos'
 import { cn } from '@/lib/cn'
+import { blurProps } from '@/lib/image'
 import { Icon } from './Icon'
 
 type Props = {
@@ -16,7 +17,7 @@ type Props = {
 /** Foto em moldura de proporção fixa com legenda sobre gradiente. Usada na prévia e na galeria. */
 export function PhotoTile({
   photo,
-  sizes = '(min-width: 1024px) 800px, 100vw',
+  sizes = '(min-width: 1280px) 404px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw',
   className,
   aspect = 'aspect-[4/3]',
   zoomable,
@@ -27,8 +28,8 @@ export function PhotoTile({
         src={photo.src}
         alt={photo.alt}
         fill
-        quality={90}
         sizes={sizes}
+        {...blurProps(photo)}
         className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
       />
       <div

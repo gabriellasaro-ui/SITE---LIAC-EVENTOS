@@ -1,4 +1,4 @@
-import { photos } from '@/content/photos'
+import { verticals } from '@/content/photos'
 import { quickFacts } from '@/content/venue'
 import { ButtonLink } from '@/components/ui/Button'
 import { Icon } from '@/components/ui/Icon'
@@ -46,18 +46,16 @@ export function IntroSection() {
         <div className="relative h-[480px] sm:h-[580px] lg:h-[640px]">
           <Reveal scale={0.94} className="absolute top-0 right-0 h-[80%] w-[82%]">
             <ParallaxImage
-              src={photos.jardimNoite.src}
-              alt={photos.jardimNoite.alt}
-              sizes="(min-width: 1024px) 560px, 82vw"
+              photo={verticals.jardimArco}
+              sizes="(min-width: 1024px) 480px, 82vw"
               className="photo-frame h-full w-full"
             />
           </Reveal>
           <Parallax speed={50} className="absolute bottom-0 left-0 h-[46%] w-[50%]">
             <Reveal scale={0.9} delay={0.15} className="h-full w-full">
               <ParallaxImage
-                src={photos.salaoFlores.src}
-                alt={photos.salaoFlores.alt}
-                sizes="(min-width: 1024px) 340px, 50vw"
+                photo={verticals.mesaBolo}
+                sizes="(min-width: 1024px) 300px, 50vw"
                 className="photo-frame border-paper h-full w-full border-[10px]"
               />
             </Reveal>

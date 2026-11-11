@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { facts, site } from '@/config/site'
-import { photos, type Photo } from '@/content/photos'
+import { photos, verticals, type Photo } from '@/content/photos'
+import { blurProps } from '@/lib/image'
 import { pageMetadata } from '@/lib/seo'
 import { webPageSchema } from '@/lib/schema'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -14,8 +15,8 @@ import { FinalCta } from '@/components/sections/FinalCta'
 
 const nota = site.rating?.value.toLocaleString('pt-BR', { minimumFractionDigits: 1 })
 
-const title = `Clientes e avaliações: nota ${nota} no Casamentos.com.br`
-const description = `Casais, famílias e empresas já escolheram o Liac, na Pampulha: nota ${nota} no Casamentos.com.br e mais de ${facts.couples} casais. Veja avaliações e histórias.`
+const title = `Clientes e avaliações: nota ${nota} no ${site.rating?.platform}`
+const description = `Casais, famílias e empresas já escolheram o Liac, na Pampulha: nota ${nota} em ${site.rating?.count} avaliações no ${site.rating?.platform} e mais de ${facts.couples} casais. Veja avaliações e histórias.`
 
 export const metadata: Metadata = pageMetadata({ title, description, path: '/clientes' })
 
@@ -24,19 +25,19 @@ const cases: { tag: string; title: string; text: string; photo: Photo }[] = [
     tag: 'Case 01',
     title: 'Casamento',
     text: 'Conheça a proposta do casal, os ambientes escolhidos, a montagem e os detalhes que transformaram o casamento em uma experiência única.',
-    photo: photos.noivaCorredor,
+    photo: verticals.noivaNoite,
   },
   {
     tag: 'Case 02',
     title: 'Evento corporativo',
     text: 'Veja como o espaço foi configurado para atender ao objetivo da empresa, receber os convidados e criar uma experiência de marca memorável.',
-    photo: photos.salaoJantar,
+    photo: verticals.salaoBuffet,
   },
   {
     tag: 'Case 03',
     title: 'Evento social',
     text: 'Da ideia à celebração: ambientação, circulação e escolhas que fizeram o evento ganhar identidade própria.',
-    photo: photos.boate15,
+    photo: verticals.boateLounge,
   },
 ]
 
@@ -46,7 +47,7 @@ export default function ClientesPage() {
       <JsonLd data={webPageSchema({ path: '/clientes', name: title, description })} />
       <PageHero
         crumb={{ label: 'Clientes', href: '/clientes' }}
-        image={photos.casamentoRecepcao}
+        image={photos.saidaNoivos}
         title="Eventos marcantes começam com escolhas que inspiram confiança."
         highlight={{ confiança: 'text-highlight' }}
         description="Casais, famílias e empresas já escolheram o Liac para celebrar momentos importantes em Belo Horizonte. Aqui, a prova está nas experiências, nos registros e em quem viveu cada evento."
@@ -73,8 +74,8 @@ export default function ClientesPage() {
                     src={c.photo.src}
                     alt={c.photo.alt}
                     fill
-                    quality={85}
-                    sizes="(min-width: 768px) 520px, 100vw"
+                    sizes="(min-width: 1280px) 400px, (min-width: 768px) 33vw, 100vw"
+                    {...blurProps(c.photo)}
                     className="object-cover transition-transform duration-[1400ms] group-hover:scale-110"
                   />
                   <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />

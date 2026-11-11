@@ -78,8 +78,10 @@ export type SiteConfig = {
    * quando `confirmed: true`, para não divulgar endereço desatualizado.
    */
   extraUnits?: Unit[]
-  /** Avaliação pública (ex.: Google Business Profile). Exibida no site; NÃO vai para o schema (política do Google). */
-  rating?: { value: number; count: number; platform: string; url: string }
+  /** Avaliação pública principal (Google). Exibida no site; NÃO vai para o schema (política do Google). */
+  rating?: PublicRatingInfo
+  /** Outros perfis com avaliações públicas (ex.: Casamentos.com.br), exibidos junto da principal. */
+  otherRatings?: PublicRatingInfo[]
   /** Dados do controlador para a política de privacidade (LGPD). */
   legal: {
     /** Razão social (se vazio, a política usa o nome fantasia) */
@@ -96,3 +98,5 @@ export type SiteConfig = {
   cta: { label: string; href: string }
   keywords: string[]
 }
+
+export type PublicRatingInfo = { value: number; count: number; platform: string; url: string }
